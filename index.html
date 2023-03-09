@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Auto Heal Test Page</title>
+	<script>
+		window.onload = function() {
+			var container = document.getElementsByClassName("container")[0];
+			for (var i = 0; i < 500; i++) {
+				var box = document.createElement("div");
+				box.classList.add("box");
+				container.appendChild(box);
+			}
+		}
+	</script>
+	<style>
+		.box {
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			background-color: blue;
+			margin: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+	</div>
+</body>
+</html>
