@@ -1,32 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Auto Heal Test Page</title>
-	<script>
-		window.onload = function() {
-			var container = document.getElementsByClassName("container")[0];
-			for (var i = 0; i < 500; i++) {
-				var box = document.createElement("div");
-				box.classList.add("box");
-				container.appendChild(box);
-			}
-		}
-	</script>
-	<style>
-		.box {
-			display: inline-block;
-			width: 20px;
-			height: 20px;
-			background-color: blue;
-			margin: 5px;
-		}
-	</style>
+  <meta charset="UTF-8">
+  <title>Autohealing Test Page</title>
 </head>
 <body>
-	<div class="container">
-		<div class="box"></div>
-		<div class="box"></div>
-		<div class="box"></div>
-	</div>
+  <div id="parent">
+    <h1 class="title">Autohealing Test Page</h1>
+    <input type="text" id="typeahead-input-1" name="" role="searchbox" class="form-control qa-input-search-address" value="2" checked="false" aria-label="Rechercher quelque chose…" placeholder="Rechercher quelque chose…" aria-controls="result-list-1" data-v-cf5e74="" aria-multiline="false" aria-autocomplete="list" aria-activedescendant="selected-option-1">
+  </div>
+
+  <script>
+    const parent = document.getElementById("parent");
+    let prev = parent.lastElementChild;
+
+    for (let i = 1; i <= 300; i++) {
+      const element = document.createElement("div");
+      element.classList.add("sibling");
+      element.classList.add(`sibling-${i}`);
+
+      const input = document.createElement("input");
+      input.type = "text";
+      input.id = `typeahead-input-${i+1}`;
+      input.name = "";
+      input.role = "searchbox";
+      input.classList.add("form-control");
+      input.classList.add("qa-input-search-address");
+      input.value = "2";
+      input.checked = false;
+      input.setAttribute("aria-label", "Rechercher quelque chose…");
+      input.setAttribute("placeholder", "Rechercher quelque chose…");
+      input.setAttribute("aria-controls", `result-list-${i+1}`);
+      input.setAttribute("data-v-cf5e74", "");
+      input.setAttribute("aria-multiline", "false");
+      input.setAttribute("aria-autocomplete", "list");
+      input.setAttribute("aria-activedescendant", `selected-option-${i+1}`);
+
+      element.appendChild(input);
+      parent.insertBefore(element, prev);
+      prev = element;
+    }
+  </script>
 </body>
 </html>
