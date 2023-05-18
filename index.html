@@ -1,45 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Autohealing Test Page</title>
-</head>
-<body>
-  <div id="parent">
-    <h1 class="title">Autohealing Test Page</h1>
-    <input type="text" id="typeahead-input-1" name="" role="searchbox" class="form-control qa-input-search-address" value="2" checked="false" aria-label="Rechercher quelque chose…" placeholder="Rechercher quelque chose…" aria-controls="result-list-1" data-v-cf5e74="" aria-multiline="false" aria-autocomplete="list" aria-activedescendant="selected-option-1">
-  </div>
-
+  <title>Guess mee</title>
   <script>
-    const parent = document.getElementById("parent");
-    let prev = parent.lastElementChild;
-
-    for (let i = 1; i <= 300; i++) {
-      const element = document.createElement("div");
-      element.classList.add("sibling");
-      element.classList.add(`sibling-${i}`);
-
-      const input = document.createElement("input");
-      input.type = "text";
-      input.id = `typeahead-input-${i+1}`;
-      input.name = "";
-      input.role = "searchbox";
-      input.classList.add("form-control");
-      input.classList.add("qa-input-search-address");
-      input.value = "2";
-      input.checked = false;
-      input.setAttribute("aria-label", "Rechercher quelque chose…");
-      input.setAttribute("placeholder", "Rechercher quelque chose…");
-      input.setAttribute("aria-controls", `result-list-${i+1}`);
-      input.setAttribute("data-v-cf5e74", "");
-      input.setAttribute("aria-multiline", "false");
-      input.setAttribute("aria-autocomplete", "list");
-      input.setAttribute("aria-activedescendant", `selected-option-${i+1}`);
-
-      element.appendChild(input);
-      parent.insertBefore(element, prev);
-      prev = element;
+    function readText() {
+      var text = document.getElementById("inputText").value;
+      console.log("https://devtesting.testsigma.com/ui/td/cases/73/steps")
+      alert("You entered: " + text);
     }
   </script>
+</head>
+<body>
+	<div> Enter correct text I will give the hint 3</div>
+  <form>
+    <label for="inputText">Enter Text:</label>
+    <input type="text" id="inputText" name="inputText">
+    <button type="button" onclick="readText()">Read Text</button>
+  </form>
 </body>
 </html>
